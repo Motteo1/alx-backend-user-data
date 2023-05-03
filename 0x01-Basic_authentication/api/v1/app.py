@@ -28,7 +28,6 @@ def not_found(error) -> str:
     return jsonify({"error": "Not found"}), 404
 
 
-
 @app.errorhandler(401)
 def unauthorized(error) -> str:
     """
@@ -57,6 +56,7 @@ def before():
             abort(401)
         if not auth.current_user(request):
             abort(403)
+
 
 if __name__ == "__main__":
     host = getenv("API_HOST", "0.0.0.0")
